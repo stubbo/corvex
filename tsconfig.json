@@ -1,0 +1,17 @@
+{
+    "compilerOptions": {
+        "module": "commonjs",
+        "target": "es5",
+        "jsx": "react",
+        "esModuleInterop": true,
+        "baseUrl": "resources/js",
+        "paths": {
+            "Components/*": ["Components/*"],
+            "Layout/*": ["Components/Layout/*"],
+            "Services/*": ["services/*"],
+        }
+    },
+    "include": [
+        "resources/js/**/*"
+    ]
+}

@@ -1,0 +1,48 @@
+/* todo: Remove all unused font w */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+@tailwind base;
+@tailwind components;
+
+/* Custom Stuff */
+
+.nav-item {
+    @apply rounded-md py-2 px-3 inline-flex items-center text-sm font-medium
+    text-gray-900 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-700
+    hover:text-gray-900 dark:hover:text-gray-300 capitalize
+}
+
+.nav-item-mobile {
+    @apply block rounded-md py-2 px-3 text-base font-medium text-gray-900
+    dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-700
+    hover:text-gray-900 dark:hover:text-gray-300
+}
+
+.component-nav {
+    @apply group rounded-md px-3 py-2 flex items-center text-sm font-medium
+    text-gray-900 dark:text-gray-200 hover:text-gray-900  dark:hover:bg-gray-700
+    hover:bg-gray-50 dark:hover:text-gray-300
+}
+
+.component-nav.active {
+    @apply bg-gray-50 dark:bg-gray-700 text-purple-600 dark:text-purple-400
+    hover:text-purple-600 dark:hover:text-purple-400 hover:bg-white
+    dark:hover:bg-gray-700
+}
+
+.component-nav-icon {
+    @apply flex-shrink-0 -ml-1 mr-3 h-6 w-6 text-gray-400 dark:text-purple-200
+}
+
+.active .component-nav-icon {
+    @apply text-purple-600 dark:text-purple-400
+}
+
+.input {
+    @apply mt-1 block w-full border border-gray-300 dark:border-gray-700
+    rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-gray-900
+    dark:focus:ring-gray-600 focus:border-gray-900 dark:focus:border-gray-600
+    sm:text-sm dark:bg-gray-700 dark:text-gray-300
+}
+
+@tailwind utilities;
