@@ -23,7 +23,7 @@ export default class PageNav extends Component {
       <aside
         className="py-6 px-2 sm:px-6 lg:py-0 lg:px-0 lg:col-span-3">
         <nav className="space-y-1">
-          {RouteService.validNavRoutes.map(this.renderRoute)}
+          {RouteService.validPageRoutes.map(this.renderRoute)}
         </nav>
       </aside>
     );

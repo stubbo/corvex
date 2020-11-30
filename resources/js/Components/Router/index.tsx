@@ -5,30 +5,41 @@ import RouteService, {NavItem} from 'Services/RouteService';
 
 export interface RouterState {
   authed: boolean;
+  routes: NavItem[];
 }
 
 export default class Router extends Component<{}, RouterState> {
   state = {
     authed: AuthService.isAuthed,
+    routes: RouteService.validRoutes,
   };
 
   constructor(props) {
     super(props);
 
     this.checkAuth = this.checkAuth.bind(this);
+    this.updateRoutes = this.updateRoutes.bind(this);
   }
 
   public componentDidMount() {
     AuthService.on('change', this.checkAuth);
+    RouteService.on('change', this.updateRoutes);
   }
 
   public componentWillUnmount() {
     AuthService.removeListener('change', this.checkAuth);
+    RouteService.removeListener('change', this.updateRoutes);
   }
 
   checkAuth(): void {
     this.setState({
       authed: AuthService.isAuthed,
+    });
+  }
+
+  updateRoutes(): void {
+    this.setState({
+      routes: RouteService.validRoutes,
     });
   }
 
@@ -39,12 +50,14 @@ export default class Router extends Component<{}, RouterState> {
   }
 
   render() {
+    const {authed, routes} = this.state;
+
     return (
       <BrowserRouter>
         <Switch>
-          {RouteService.validRoutes.map(this.renderRoute)}
+          {routes.map(this.renderRoute)}
 
-          {!this.state.authed && <Redirect from="/" to="/login" push />}
+          {!authed && <Redirect from="/" to="/login" push />}
         </Switch>
       </BrowserRouter>
     );

@@ -5,18 +5,21 @@ import User from './Models/User';
 export class AuthService extends EventEmitter {
   me?: User;
 
-  public get authToken(): string|null {
-    return localStorage.getItem('auth-token');
-  }
+  public authToken = (token?: string | null): string | null => {
+    if (token === undefined) {
+      const token = localStorage.getItem('auth-token');
+      return token !== 'null' ? token : null;
+    }
 
-  public set authToken(token: string|null) {
     localStorage.setItem('auth-token', token);
-
     Http.token = token;
-  }
+
+    this.emit('change');
+    return token;
+  };
 
   public get isAuthed(): boolean {
-    return this.authToken !== null;
+    return this.authToken() !== null;
   }
 
   public get user(): User {
@@ -28,9 +31,4 @@ export class AuthService extends EventEmitter {
   }
 }
 
-const temp = new AuthService;
-
-/** @ts-ignore */
-window.auth = temp;
-
-export default temp;
+export default new AuthService;
