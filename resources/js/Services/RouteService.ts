@@ -14,7 +14,7 @@ export interface NavItem {
   exact?: boolean;
 }
 
-class RouteService extends EventEmitter {
+export class RouteService extends EventEmitter {
   allRoutes: NavItem[] = [];
   validRoutesCache: NavItem[] = null;
   validNavRoutesCache: NavItem[] = null;
