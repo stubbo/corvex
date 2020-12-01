@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {Component, ReactNode} from 'react';
 import AuthService from 'Services/AuthService';
 import {BrowserRouter, Redirect, Route, Switch} from 'react-router-dom';
 import RouteService, {NavItem} from 'Services/RouteService';
@@ -8,25 +8,25 @@ export interface RouterState {
   routes: NavItem[];
 }
 
-export default class Router extends Component<{}, RouterState> {
+export default class Router extends Component<unknown, RouterState> {
   state = {
     authed: AuthService.isAuthed,
     routes: RouteService.validRoutes,
   };
 
-  constructor(props) {
+  constructor(props: null) {
     super(props);
 
     this.checkAuth = this.checkAuth.bind(this);
     this.updateRoutes = this.updateRoutes.bind(this);
   }
 
-  public componentDidMount() {
+  public componentDidMount(): void {
     AuthService.on('change', this.checkAuth);
     RouteService.on('change', this.updateRoutes);
   }
 
-  public componentWillUnmount() {
+  public componentWillUnmount(): void {
     AuthService.removeListener('change', this.checkAuth);
     RouteService.removeListener('change', this.updateRoutes);
   }
@@ -43,13 +43,13 @@ export default class Router extends Component<{}, RouterState> {
     });
   }
 
-  renderRoute(route: NavItem, k) {
+  renderRoute(route: NavItem, k: number): ReactNode {
     return (
       <Route key={k} exact={route.exact ?? true} path={route.route} component={route.component}/>
     );
   }
 
-  render() {
+  render(): ReactNode {
     const {authed, routes} = this.state;
 
     return (

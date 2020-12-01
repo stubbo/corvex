@@ -1,11 +1,11 @@
-import React, {Component} from 'react';
+import React, {Component, ReactNode} from 'react';
 
 export default class Search extends Component {
-  handleSearch = () => {
+  handleSearch = (): void => {
     // todo: implement system searching
   };
 
-  public render() {
+  public render(): ReactNode {
     return (
       <div className="max-w-xs w-full">
         <label htmlFor="search" className="sr-only">Search</label>

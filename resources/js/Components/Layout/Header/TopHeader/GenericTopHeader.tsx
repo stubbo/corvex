@@ -9,7 +9,7 @@ export interface HeaderTopGenericProps {
 }
 
 export default class GenericTopHeader extends Component<HeaderTopGenericProps> {
-  public render() {
+  public render(): ReactNode {
     const {menuOpen} = this.props;
 
     return (
@@ -56,6 +56,6 @@ export default class GenericTopHeader extends Component<HeaderTopGenericProps> {
         </div>
         {this.props.nav}
       </div>
-    )
+    );
   }
 }

@@ -27,7 +27,7 @@ export class RouteService extends EventEmitter {
     AuthService.on('change', this.routeCaches);
   }
 
-  routeCaches() {
+  routeCaches(): void {
     this.validateRoutes();
     this.validateNavRoutes();
     this.validatePageRoutes();
@@ -35,7 +35,7 @@ export class RouteService extends EventEmitter {
     this.emit('change');
   }
 
-  public registerRoute(...route: NavItem[]) {
+  public registerRoute(...route: NavItem[]): void {
     this.allRoutes.push(...route);
   }
 

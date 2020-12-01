@@ -1,8 +1,8 @@
-import React, {Component, PropsWithChildren} from 'react';
+import React, {Component, PropsWithChildren, ReactNode} from 'react';
 import PageNav from './PageNav';
 
-export default class Page extends Component<PropsWithChildren<{}>> {
-  public render() {
+export default class Page extends Component<PropsWithChildren<unknown>> {
+  public render(): ReactNode {
     return (
       <>
         <PageNav/>

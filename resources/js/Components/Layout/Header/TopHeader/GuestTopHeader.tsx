@@ -17,7 +17,7 @@ export class GuestTopHeader extends Component<TopHeaderProps> {
     );
   }
 
-  renderNavItem({route, name}: NavItem, k) {
+  renderNavItem({route, name}: NavItem, k: number): ReactNode {
     return (
       <Link key={k} className="nav-item" to={route}>
         {name}
@@ -33,7 +33,7 @@ export class GuestTopHeader extends Component<TopHeaderProps> {
     );
   }
 
-  public render() {
+  public render(): ReactNode {
     return (
       <GenericTopHeader header={this.renderHeader()} nav={this.renderMobileNav()} {...this.props}/>
     );

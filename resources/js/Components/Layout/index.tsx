@@ -1,31 +1,31 @@
-import React, {Component, PropsWithChildren} from 'react';
+import React, {Component, PropsWithChildren, ReactNode} from 'react';
 import Header from './Header';
 
 export interface LayoutState {
   colorSchemeDark: boolean;
 }
 
-export default class Layout extends Component<PropsWithChildren<{}>, LayoutState> {
+export default class Layout extends Component<PropsWithChildren<unknown>, LayoutState> {
   matchMedia = window.matchMedia('(prefers-color-scheme: dark)');
   state = {
     colorSchemeDark: window.matchMedia('(prefers-color-scheme: dark)').matches,
   };
 
-  componentDidMount() {
+  componentDidMount(): void {
     this.matchMedia.addEventListener('change', this.setColorScheme);
   }
 
-  componentWillUnmount() {
-    this.matchMedia.removeEventListener('change', this.setColorScheme)
+  componentWillUnmount(): void {
+    this.matchMedia.removeEventListener('change', this.setColorScheme);
   }
 
-  setColorScheme = ({matches: isDark}: MediaQueryListEvent) => {
+  setColorScheme = ({matches: isDark}: MediaQueryListEvent): void => {
     this.setState({
       colorSchemeDark: isDark,
     });
   }
 
-  public render() {
+  public render(): ReactNode {
     const {colorSchemeDark} = this.state;
 
     return (

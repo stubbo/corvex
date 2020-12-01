@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {Component, ReactNode} from 'react';
 import AuthService from 'Services/AuthService';
 import GuestHeader from 'Layout/Header/GuestHeader';
 import AuthedHeader from 'Layout/Header/AuthedHeader';
@@ -8,17 +8,17 @@ interface HeaderState {
   menuOpen: boolean;
 }
 
-export default class Header extends Component<{}, HeaderState> {
+export default class Header extends Component<unknown, HeaderState> {
   state = {
     authed: AuthService.isAuthed,
     menuOpen: false,
   };
 
-  public componentDidMount() {
+  public componentDidMount(): void {
     AuthService.on('change', this.checkAuth);
   }
 
-  public componentWillUnmount() {
+  public componentWillUnmount(): void {
     AuthService.removeListener('change', this.checkAuth);
   }
 
@@ -34,7 +34,7 @@ export default class Header extends Component<{}, HeaderState> {
     });
   };
 
-  public render() {
+  public render(): ReactNode {
     const {authed, menuOpen} = this.state;
 
     return (
@@ -42,6 +42,6 @@ export default class Header extends Component<{}, HeaderState> {
         {!authed && <GuestHeader toggleMenu={this.toggleMenu} menuOpen={menuOpen}/>}
         {authed && <AuthedHeader toggleMenu={this.toggleMenu} menuOpen={menuOpen}/>}
       </header>
-    )
+    );
   }
 }

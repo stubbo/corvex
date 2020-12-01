@@ -94,7 +94,7 @@ export class AuthedTopHeader extends Component<TopHeaderProps, HeaderState> {
     );
   }
 
-  renderNavItem({route, name}: NavItem, k) {
+  renderNavItem({route, name}: NavItem, k: number): ReactNode {
     return (
       <Link key={k} className="nav-item" to={route}>
         {name}
@@ -110,7 +110,7 @@ export class AuthedTopHeader extends Component<TopHeaderProps, HeaderState> {
     );
   }
 
-  public render() {
+  public render(): ReactNode {
     return (
       <GenericTopHeader header={this.renderHeader()} nav={this.renderNav()} {...this.props}/>
     );

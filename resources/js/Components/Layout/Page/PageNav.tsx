@@ -1,10 +1,10 @@
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import React, {Component, ReactNode} from "react";
-import {Link} from "react-router-dom";
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import React, {Component, ReactNode} from 'react';
+import {Link} from 'react-router-dom';
 import RouteService, {NavItem} from 'Services/RouteService';
 
 export default class PageNav extends Component {
-  renderRoute(route: NavItem, k): ReactNode {
+  renderRoute(route: NavItem, k: number): ReactNode {
     return (
       <Link key={k} to={route.route} className="component-nav">
         {route.icon && <>
@@ -18,7 +18,7 @@ export default class PageNav extends Component {
     );
   }
 
-  public render() {
+  public render(): ReactNode {
     return (
       <aside
         className="py-6 px-2 sm:px-6 lg:py-0 lg:px-0 lg:col-span-3">
