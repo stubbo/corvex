@@ -114,4 +114,5 @@ return [
 
     'password_timeout' => 10800,
 
+    'default_avatar' => env('USER_DEFAULT_AVATAR', '/img/logo.svg'),
 ];
