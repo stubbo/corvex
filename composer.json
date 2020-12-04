@@ -16,6 +16,7 @@
         "laravel/sanctum": "^2.8",
         "laravel/socialite": "^5.1",
         "laravel/tinker": "^2.5",
+        "sentry/sentry-laravel": "^2.3",
         "socialiteproviders/discord": "^4.0",
         "socialiteproviders/steam": "^4.0"
     },
