@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Laravel\Sanctum\HasApiTokens;
 use Storage;
 
@@ -30,17 +31,17 @@ class User extends Model
         'username', 'avatar_path',
     ];
 
-    public function getAvatarFileAttribute()
+    public function getAvatarFileAttribute(): string
     {
         return Storage::get($this->avatar_path);
     }
 
-    public function getAvatarUrlAttribute()
+    public function getAvatarUrlAttribute(): string
     {
         return Storage::url($this->avatar_path);
     }
 
-    public function platformAccounts()
+    public function platformAccounts(): HasMany
     {
         return $this->hasMany(PlatformAccount::class);
     }

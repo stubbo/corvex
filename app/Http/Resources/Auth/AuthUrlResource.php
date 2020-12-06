@@ -12,7 +12,7 @@ class AuthUrlResource extends JsonResource
      * @param $request
      * @return array
      */
-    public function toArray($request)
+    public function toArray($request): array
     {
         return [
             'auth_url' => $this->resource

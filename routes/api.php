@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Users\Me\MeController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -15,5 +16,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::prefix('/v1')->group(function() {
-    Route::prefix('/auth')->name('auth.')->group(base_path('routes/Auth/index.php'));
+    Route::prefix('/auth')->name('auth.')->group(base_path('routes/auth/index.php'));
+
+    Route::middleware('auth:sanctum')->group(function() {
+        Route::prefix('/users')->group(function() {
+            Route::resource('me', MeController::class)->only(['index']);
+        });
+    });
 });

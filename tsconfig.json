@@ -9,6 +9,8 @@
             "Components/*": ["Components/*"],
             "Layout/*": ["Components/Layout/*"],
             "Services/*": ["services/*"],
+            "Api/*": ["services/Api/*"],
+            "*": ["*"],
         }
     },
     "include": [

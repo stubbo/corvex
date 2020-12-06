@@ -12,11 +12,11 @@ class AuthResource extends JsonResource
      * @param $request
      * @return array
      */
-    public function toArray($request)
+    public function toArray($request): array
     {
         return [
-            'access_token' => $this->plainTextToken,
-            'abilities' => $this->abilities,
+            'access_token' => $this->resource->plainTextToken,
+            'abilities' => $this->resource->abilities,
         ];
     }
 }

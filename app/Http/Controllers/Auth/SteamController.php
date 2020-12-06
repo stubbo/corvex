@@ -10,7 +10,7 @@ class SteamController extends Controller
 {
     use AuthController;
 
-    public function index()
+    public function index(): AuthUrlResource
     {
         return new AuthUrlResource(Socialite::driver('steam')->redirect()->getTargetUrl());
     }
@@ -19,7 +19,7 @@ class SteamController extends Controller
     {
         $loginUser = Socialite::driver('steam')->stateless()->user();
 
-        return $this->handleLogin('steam', collect([
+        $token = $this->handleLogin('steam', collect([
             'platform_id' => $loginUser->id,
             'username' => $loginUser->nickname,
             'avatar' => $loginUser->avatar,
@@ -27,5 +27,7 @@ class SteamController extends Controller
             'refresh_token' => $loginUser->refreshToken,
             'expires_at' => $loginUser->expiresIn ? now()->addSeconds($loginUser->expiresIn) : null,
         ]));
+
+        return redirect('/login/callback/' . $token->plainTextToken);
     }
 }

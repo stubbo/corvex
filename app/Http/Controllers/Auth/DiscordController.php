@@ -12,7 +12,7 @@ class DiscordController extends Controller
 {
     use AuthController;
 
-    public function index()
+    public function index(): AuthUrlResource
     {
         $scopes = [
             'identify'
@@ -32,20 +32,26 @@ class DiscordController extends Controller
     {
         $loginUser = Socialite::driver('discord')->stateless()->user();
 
-        $user = $this->handleLogin('discord', collect([
+        $data = collect([
             'platform_id' => $loginUser->id,
             'username' => $loginUser->nickname,
             'avatar' => $loginUser->avatar,
             'access_token' => $loginUser->token,
             'refresh_token' => $loginUser->refreshToken,
             'expires_at' => $loginUser->expiresIn ? now()->addSeconds($loginUser->expiresIn) : null,
-        ]));
+            'last_user' => now(),
+        ]);
 
         $guildId = config('services.discord.guild_id');
         $botToken = config('services.discord.bot_token');
         if (!config('services.discord.join_guild', false) && $guildId && $botToken) {
-            return $user;
+            $token = $this->handleLogin('discord', $data);
+
+            return redirect('/login/callback/' . $token->plainTextToken);
         }
+
+
+        $token = $this->handleLogin('discord', $data->put('last_used', now()));
 
         $guilds = Http::withToken($loginUser->token)->get('https://discordapp.com/api/v6/users/@me/guilds')->json();
 
@@ -54,7 +60,7 @@ class DiscordController extends Controller
         });
 
         if (sizeof($guildCheck) === 1) {
-            return $user;
+            return redirect('/login/callback/' . $token->plainTextToken);
         }
 
         Http::withToken($botToken, 'Bot')
@@ -62,6 +68,6 @@ class DiscordController extends Controller
                 'access_token' => $loginUser->token,
             ]);
 
-        return $user;
+        return redirect('/login/callback/' . $token->plainTextToken);
     }
 }

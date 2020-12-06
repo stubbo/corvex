@@ -1,9 +1,25 @@
 import {EventEmitter} from 'events';
 import Http from './Api/Http';
-import User from './Models/User';
+import AuthResource, {AuthUrlResponse} from 'Api/AuthResource';
+import Me from './Models/User/Me';
+
+interface LoginSuccess extends AuthUrlResponse {
+  success: true;
+}
+
+interface LoginError {
+  success: false;
+}
+
+export type LoginAttempt = LoginSuccess | LoginError;
+
+export interface AuthMethods {
+  steam: boolean;
+  discord: boolean;
+}
 
 export class AuthService extends EventEmitter {
-  me?: User;
+  me?: Me;
 
   public authToken = (token?: string | null): string | null => {
     if (token === undefined) {
@@ -22,12 +38,42 @@ export class AuthService extends EventEmitter {
     return this.authToken() !== null;
   }
 
-  public get user(): User {
+  public get user(): Me {
     if (!this.me) {
-      this.me = new User(JSON.parse(localStorage.getItem('user')));
+      this.me = new Me(JSON.parse(localStorage.getItem('user')));
     }
 
     return this.me;
+  }
+
+  public async fetchMe(): Promise<Me> {
+    this.me = await Me.fetch();
+
+    localStorage.setItem('user', this.me.toString());
+
+    return this.me;
+  }
+
+  public async login(method: keyof AuthMethods): Promise<LoginAttempt> {
+    const loginResponse = await AuthResource.requestAuth(method);
+
+    if (loginResponse.status !== 200) {
+      return {
+        success: false,
+      };
+    }
+
+    return {
+      success: true,
+      ...loginResponse.data,
+    };
+  }
+
+  authMethods(): AuthMethods {
+    return {
+      steam: process.env.MIX_STEAM_AUTH_ENABLED === 'true',
+      discord: process.env.MIX_DISCORD_AUTH_ENABLED === 'true',
+    };
   }
 }
 

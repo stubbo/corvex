@@ -16,12 +16,12 @@ trait HasUuid
         });
     }
 
-    public function getKeyType()
+    public function getKeyType(): string
     {
         return 'string';
     }
 
-    public function getIncrementing()
+    public function getIncrementing(): bool
     {
         return false;
     }

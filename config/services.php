@@ -32,22 +32,20 @@ return [
 
     'steam' => [
         'enabled' => (bool)env('MIX_STEAM_AUTH_ENABLED', false),
-        'path' => env('STEAM_PATH', '/steam'),
 
         'client_id' => null,
         'client_secret' => env('STEAM_API'),
-        'redirect' => env('APP_URL') . '/api/v1/auth' . env('STEAM_PATH', '/steam') . '/callback',
+        'redirect' => env('APP_URL') . '/api/v1/auth/steam/callback',
 
         'group_id' => env('STEAM_GROUP'),
     ],
 
     'discord' => [
         'enabled' => (bool)env('MIX_DISCORD_AUTH_ENABLED', false),
-        'path' => env('DISCORD_PATH', '/discord'),
 
         'client_id' => env('DISCORD_CLIENT_ID'),
         'client_secret' => env('DISCORD_CLIENT_SECRET'),
-        'redirect' => env('APP_URL') . '/api/v1/auth' . env('DISCORD_PATH', '/discord') . '/callback',
+        'redirect' => env('APP_URL') . '/api/v1/auth/discord/callback',
 
         'notification_webhook' => env('DISCORD_WEBHOOK'),
 

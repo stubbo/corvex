@@ -16,6 +16,7 @@ module.exports = {
       'Components': Path.resolve('resources/js/Components'),
       'Layout': Path.resolve('resources/js/Components/Layout'),
       'Services': Path.resolve('resources/js/services'),
+      'Api': Path.resolve('resources/js/services/Api'),
       'Root': Path.resolve('resources/js/'),
     },
   },
