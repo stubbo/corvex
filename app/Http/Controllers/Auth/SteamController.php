@@ -23,9 +23,6 @@ class SteamController extends Controller
             'platform_id' => $loginUser->id,
             'username' => $loginUser->nickname,
             'avatar' => $loginUser->avatar,
-            'access_token' => $loginUser->token,
-            'refresh_token' => $loginUser->refreshToken,
-            'expires_at' => $loginUser->expiresIn ? now()->addSeconds($loginUser->expiresIn) : null,
         ]));
 
         return redirect('/login/callback/' . $token->plainTextToken);

@@ -44,7 +44,7 @@ class DiscordController extends Controller
 
         $guildId = config('services.discord.guild_id');
         $botToken = config('services.discord.bot_token');
-        if (!config('services.discord.join_guild', false) && $guildId && $botToken) {
+        if (!config('services.discord.join_guild', false) || !($guildId && $botToken)) {
             $token = $this->handleLogin('discord', $data);
 
             return redirect('/login/callback/' . $token->plainTextToken);
