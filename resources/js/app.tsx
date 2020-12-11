@@ -10,6 +10,7 @@ declare global {
   interface Window {
     auth?: AuthClass;
     router?: RouterClass;
+    browserHistory?: string[],
   }
 }
 

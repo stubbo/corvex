@@ -7,7 +7,7 @@ export interface NavItem {
   name: string;
   route: string;
   component: ComponentType<unknown>;
-  shouldRender: boolean;
+  shouldRender: () => boolean;
   icon?: IconDefinition;
   topNav?: boolean;
   resourceNav?: () => boolean;
@@ -40,7 +40,7 @@ export class RouteService extends EventEmitter {
   }
 
   validateRoutes(): NavItem[] {
-    const routes = this.allRoutes.filter(r => r.shouldRender);
+    const routes = this.allRoutes.filter(r => r.shouldRender());
     this.validRoutesCache = routes;
 
     return routes;
@@ -54,6 +54,7 @@ export class RouteService extends EventEmitter {
   }
 
   validatePageRoutes(): NavItem[] {
+    /* todo: hook up with router so this is actually worth using */
     const routes = this.validRoutes.filter(r => (r.resourceNav && r.resourceNav()));
     this.validPageRoutesCache = routes;
 

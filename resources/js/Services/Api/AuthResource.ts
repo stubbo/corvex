@@ -15,6 +15,10 @@ class AuthResource extends ApiResource {
       validateStatus: () => true,
     });
   }
+
+  logout() {
+    return this.post(this.base_uri + 'logout');
+  }
 }
 
 export default new AuthResource;

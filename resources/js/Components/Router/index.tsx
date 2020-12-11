@@ -2,6 +2,7 @@ import React, {Component, ReactNode} from 'react';
 import AuthService from 'Services/AuthService';
 import {BrowserRouter, Redirect, Route, Switch} from 'react-router-dom';
 import RouteService, {NavItem} from 'Services/RouteService';
+import History from 'Components/Router/History';
 
 export interface RouterState {
   authed: boolean;
@@ -58,7 +59,9 @@ export default class Router extends Component<unknown, RouterState> {
           {routes.map(this.renderRoute)}
 
           {!authed && <Redirect from="/" to="/login" push />}
+          <Redirect from="/login" to="/" push />
         </Switch>
+        <History />
       </BrowserRouter>
     );
   }

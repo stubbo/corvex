@@ -13,7 +13,7 @@ export default class Page extends Component<PropsWithChildren<PageProps>> {
       <>
         {hasSideNav && <PageNav/>}
 
-        <div className="space-y-6 sm:px-6 lg:px-0 lg:col-span-full">
+        <div className="space-y-6 px-3 sm:px-6 lg:px-0 lg:col-span-full dark:text-gray-300">
           {children}
         </div>
       </>

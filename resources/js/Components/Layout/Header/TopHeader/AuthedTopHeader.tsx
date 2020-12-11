@@ -73,20 +73,20 @@ export class AuthedTopHeader extends Component<TopHeaderProps, HeaderState> {
               className="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-xl bg-white dark:bg-gray-700 ring-1 ring-black ring-opacity-5 py-1"
               role="menu" aria-orientation="vertical"
               aria-labelledby="user-menu">
-              <a href="#" role="menuitem"
+              <Link to="/profile" role="menuitem"
                  className="block py-2 px-4 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-600">
                 Your Profile
-              </a>
+              </Link>
 
-              <a href="#" role="menuitem"
+              <Link to="/settings" role="menuitem"
                  className="block py-2 px-4 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-600">
                 Settings
-              </a>
+              </Link>
 
-              <a href="#" role="menuitem"
+              <Link to="/logout" role="menuitem"
                  className="block py-2 px-4 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-600">
                 Sign out
-              </a>
+              </Link>
             </div>
           </Transition>
         </div>

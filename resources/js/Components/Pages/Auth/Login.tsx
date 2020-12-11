@@ -24,7 +24,7 @@ export default class Login extends BasePage<unknown, LoginState> {
     disabled: false,
   };
 
-  static get shouldRender(): boolean {
+  static shouldRender(): boolean {
     return !AuthService.isAuthed;
   }
 

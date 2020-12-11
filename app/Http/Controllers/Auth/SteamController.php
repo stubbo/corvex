@@ -8,7 +8,7 @@ use Laravel\Socialite\Facades\Socialite;
 
 class SteamController extends Controller
 {
-    use AuthController;
+    use AuthHandler;
 
     public function index(): AuthUrlResource
     {

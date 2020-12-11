@@ -69,6 +69,14 @@ export class AuthService extends EventEmitter {
     };
   }
 
+  public async logout(): Promise<void> {
+    if (!this.isAuthed) return;
+
+    AuthResource.logout();
+    this.authToken(null);
+    this.emit('logout');
+  }
+
   authMethods(): AuthMethods {
     return {
       steam: process.env.MIX_STEAM_AUTH_ENABLED === 'true',

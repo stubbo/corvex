@@ -10,7 +10,7 @@ use Laravel\Socialite\Facades\Socialite;
 
 class DiscordController extends Controller
 {
-    use AuthController;
+    use AuthHandler;
 
     public function index(): AuthUrlResource
     {

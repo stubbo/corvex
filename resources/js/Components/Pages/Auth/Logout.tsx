@@ -4,33 +4,27 @@ import Page from 'Layout/Page';
 import {faKey} from '@fortawesome/free-solid-svg-icons';
 import BasePage from 'Layout/Page/BasePage';
 import AuthService from 'Services/AuthService';
-import {RouteComponentProps as Route} from 'react-router';
 import {Redirect} from 'react-router-dom';
 
-interface LoginCallbackProps {
-  token: string;
-}
-
-export default class LoginCallback extends BasePage<Route<LoginCallbackProps>, {redirect?: string}> {
+export default class Logout extends BasePage<unknown, {redirect?: string}> {
   static shouldRender(): boolean {
-    return !AuthService.isAuthed;
+    return AuthService.isAuthed;
   }
 
   static route = {
-    name: 'Login Callback',
-    route: '/login/callback/:token',
-    component: LoginCallback,
+    name: 'Logout',
+    route: '/logout',
+    component: Logout,
     icon: faKey,
-    shouldRender: LoginCallback.shouldRender,
+    shouldRender: Logout.shouldRender,
     topNav: false,
   };
 
-  async componentDidMount(): Promise<void> {
-    AuthService.authToken(this.props.match.params.token);
-    await AuthService.fetchMe();
+  public async componentDidMount(): Promise<void> {
+    await AuthService.logout();
 
     await this.stateUpdate({
-      redirect: window.browserHistory[2],
+      redirect: '/'
     });
   }
 
