@@ -16,4 +16,5 @@ use Illuminate\Support\Facades\Route;
 Route::view('/{path?}', 'react')
     ->where('path', '.*')
     ->where('path', '^(?:(?!api).)*$')
+    ->where('path', '^(?:(?!nova).)*$')
     ->name('react');

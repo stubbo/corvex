@@ -46,6 +46,12 @@ return [
             'provider' => 'users',
             'hash' => false,
         ],
+
+        'admins' => [
+            'driver' => 'session',
+            'provider' => 'admins',
+            'passwords' => 'admins',
+        ],
     ],
 
     /*
@@ -71,10 +77,10 @@ return [
             'model' => App\Models\User::class,
         ],
 
-        // 'users' => [
-        //     'driver' => 'database',
-        //     'table' => 'users',
-        // ],
+        'admins' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Nova\NovaUser::class,
+        ],
     ],
 
     /*
@@ -99,6 +105,12 @@ return [
             'expire' => 60,
             'throttle' => 60,
         ],
+        'admins' => [
+            'provider' => 'admins',
+            'table' => 'password_resets',
+            'expire' => 60,
+            'throttle' => 60,
+        ],
     ],
 
     /*
@@ -115,4 +127,6 @@ return [
     'password_timeout' => 10800,
 
     'default_avatar' => env('USER_DEFAULT_AVATAR', '/img/logo.svg'),
+
+    'admin_emails' => explode(',', env('ADMIN_EMAILS', '')),
 ];
