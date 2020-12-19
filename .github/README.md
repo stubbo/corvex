@@ -26,5 +26,5 @@ I will do a detailed README when we are in nearing production state.
 #### Start it up
  - Start a http server - `php artisan serve` 
  - Build react and tailwind
-  - Watch for file changes `yarn watch` (good for dev)
-  - Build a development copy `yarn dev`  
+   - Watch for file changes `yarn watch` (good for dev)
+   - Build a development copy `yarn dev`  
