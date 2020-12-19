@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+    - name: Support Discord
+      url: https://discord.gg/M7dm4Kg6HN
+      about: Please ask and answer questions here.
+    - name: New Task Template
+      url: ?template=TASK_TEMPLATE.md
+      about: Submit a new task.
