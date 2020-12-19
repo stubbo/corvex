@@ -59,7 +59,8 @@ export default class Router extends Component<unknown, RouterState> {
           {routes.map(this.renderRoute)}
 
           {!authed && <Redirect from="/" to="/login" push />}
-          <Redirect from="/login" to="/" push />
+          <Redirect from="/login" to="/forums" push />
+          <Redirect exact from="/" to="/forums" push />
         </Switch>
         <History />
       </BrowserRouter>

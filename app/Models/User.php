@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Traits\HasUuid;
+use Eloquent;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -15,6 +16,7 @@ use Storage;
  * Class User
  * @package App\Models
  *
+ * @property string $id
  * @property string $username
  * @property string $avatar_path
  * @property string $avatarFile
@@ -22,6 +24,10 @@ use Storage;
  * @property User|Collection $platformAccounts
  *
  * @method static User|Builder create(array $data)
+ *
+ * @mixin Eloquent
+ * @mixin Model
+ * @mixin Builder
  */
 class User extends Model
 {

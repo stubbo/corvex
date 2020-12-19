@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Traits\HasUuid;
 use Carbon\Carbon;
+use Eloquent;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -12,6 +13,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * Class Account
  * @package App\Models
  *
+ * @property string      $id
  * @property string      $platform
  * @property int         $platform_id
  * @property string|null $access_token
@@ -21,6 +23,10 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @property User        $user
  *
  * @method static PlatformAccount|Builder where($dataOrColumn, $operatorOrValue = null, $value = null)
+ *
+ * @mixin Eloquent
+ * @mixin Model
+ * @mixin Builder
  */
 class PlatformAccount extends Model
 {

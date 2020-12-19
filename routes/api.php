@@ -1,7 +1,6 @@
 <?php
 
 use App\Http\Controllers\Users\Me\MeController;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -23,4 +22,6 @@ Route::prefix('/v1')->group(function() {
             Route::resource('me', MeController::class)->only(['index']);
         });
     });
+
+    Route::group([], base_path('routes/forums/index.php'));
 });

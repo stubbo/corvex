@@ -1,19 +1,13 @@
 import React, {Component, PropsWithChildren, ReactNode} from 'react';
-import PageNav from './PageNav';
 
-export interface PageProps {
-  hasSideNav?: boolean
-}
 
-export default class Page extends Component<PropsWithChildren<PageProps>> {
+export default class Page extends Component<PropsWithChildren<unknown>> {
   public render(): ReactNode {
-    const {children, hasSideNav = false} = this.props;
+    const {children} = this.props;
 
     return (
       <>
-        {hasSideNav && <PageNav/>}
-
-        <div className="space-y-6 px-3 sm:px-6 lg:px-0 lg:col-span-full dark:text-gray-300">
+        <div className="space-y-6 sm:px-6 lg:px-0 lg:col-span-12 dark:text-gray-300">
           {children}
         </div>
       </>

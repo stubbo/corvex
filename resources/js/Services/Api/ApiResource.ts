@@ -3,6 +3,30 @@ import {
   AxiosPromise, AxiosRequestConfig  as Config
 } from 'axios';
 
+export interface PaginatedResource<R> {
+  data: R[];
+  links: {
+    first: string;
+    last: string;
+    next?: string;
+    prev?: string;
+  },
+  meta: {
+    current_page: number;
+    from: number;
+    last_page: number;
+    links: {
+      url: string;
+      label: number|string;
+      active: boolean;
+    }[];
+    path: string;
+    per_page: number;
+    to: number;
+    total: number;
+  }
+}
+
 export default abstract class ApiResource {
   abstract base_uri: string;
 

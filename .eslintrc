@@ -24,7 +24,8 @@
         "quotes": [
             "error",
             "single"
-        ]
+        ],
+        "@typescript-eslint/ban-ts-comment": "warn"
     },
     "settings": {
         "react": {

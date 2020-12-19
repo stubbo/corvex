@@ -3,8 +3,12 @@
 namespace App\Providers;
 
 use App\Models\Nova\NovaUser;
-use App\Nova\Metrics\NewUsers;
-use App\Nova\Metrics\TotalUsers;
+use App\Nova\Metrics\Forums\NewBoardsPerDay;
+use App\Nova\Metrics\Forums\NewForumsPerDay;
+use App\Nova\Metrics\Forums\TotalBoards;
+use App\Nova\Metrics\Forums\TotalForums;
+use App\Nova\Metrics\User\NewUsersPerDay;
+use App\Nova\Metrics\User\TotalUsers;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Hash;
 use Laravel\Nova\Nova;
@@ -73,8 +77,12 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
     protected function cards(): array
     {
         return [
-            new NewUsers,
+            new NewUsersPerDay,
             new TotalUsers,
+            new NewForumsPerDay,
+            new TotalForums,
+            new NewBoardsPerDay,
+            new TotalBoards,
         ];
     }
 

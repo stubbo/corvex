@@ -13,13 +13,15 @@
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.0.1",
         "laravel/framework": "^8.12",
+        "laravel/nova": "*",
         "laravel/sanctum": "^2.8",
         "laravel/socialite": "^5.1",
         "laravel/tinker": "^2.5",
+        "mdixon18/fontawesome": "^0.2.1",
         "sentry/sentry-laravel": "^2.3",
         "socialiteproviders/discord": "^4.0",
         "socialiteproviders/steam": "^4.0",
-        "laravel/nova": "*"
+        "spatie/laravel-query-builder": "^3.3"
     },
     "require-dev": {
         "facade/ignition": "^2.5",

@@ -40,7 +40,7 @@ export class AuthService extends EventEmitter {
 
   public get user(): Me {
     if (!this.me) {
-      this.me = new Me(JSON.parse(localStorage.getItem('user')));
+      this.me = new Me({data: JSON.parse(localStorage.getItem('user'))});
     }
 
     return this.me;

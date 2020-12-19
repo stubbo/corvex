@@ -31,6 +31,6 @@ mix.js('resources/js/app.tsx', 'public/js').react()
 
 if (!mix.inProduction()) {
   mix.sourceMaps();
-} else {
-  mix.version()
 }
+
+mix.version();
