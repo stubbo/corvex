@@ -7,9 +7,6 @@ assignees: ''
 
 ---
 
-* **Name of Feature**
-  
-
 * **Reason for Feature**
 
 

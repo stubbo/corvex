@@ -7,8 +7,6 @@ assignees: ''
 
 ---
 
-* **Name:**
-
 
 * **Description:**
 
