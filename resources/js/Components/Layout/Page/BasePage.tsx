@@ -1,7 +1,7 @@
 import {Component, ReactNode} from 'react';
 
 export default class BasePage<P = unknown, T = unknown> extends Component<P, T> {
-  stateUpdate = (state: Pick<T, keyof T>): Promise<void> => {
+  stateUpdate = function <D = T>(state: Pick<D, keyof D>): Promise<void> {
     return new Promise(resolve => {
       this.setState(state, resolve);
     });

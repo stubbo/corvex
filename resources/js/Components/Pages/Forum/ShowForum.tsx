@@ -13,7 +13,8 @@ export interface ForumProps {
 }
 
 export interface ForumState {
-  forum: ForumModel,
+  loading: boolean;
+  forum: ForumModel;
 }
 
 export default class ShowForum extends BasePage<Route<ForumProps>, ForumState> {
@@ -27,6 +28,7 @@ export default class ShowForum extends BasePage<Route<ForumProps>, ForumState> {
   };
 
   state = {
+    loading: true,
     forum: null,
   };
 
@@ -35,14 +37,17 @@ export default class ShowForum extends BasePage<Route<ForumProps>, ForumState> {
   }
 
   fetchData = async (): Promise<void> => {
-    const forum = await ForumModel.show(this.props.match.params.forum, {
-      params: {
-        include: 'boards',
-      },
+    await this.stateUpdate<Partial<ForumState>>({
+      loading: true,
     });
 
-    this.setState({
-      forum: forum,
+    await this.stateUpdate<Partial<ForumState>>({
+      loading: false,
+      forum: await ForumModel.show(this.props.match.params.forum, {
+        params: {
+          include: 'boards',
+        },
+      })
     });
   }
 
@@ -59,15 +64,20 @@ export default class ShowForum extends BasePage<Route<ForumProps>, ForumState> {
           <Breadcrumbs crumbs={[
             {
               display: 'Forums',
-              link: '/forums'
+              link: '/forums',
             },
             {
               display: this.state?.forum?.title ?? forumParam,
-              link: `/forums/${forumParam}`
+              link: `/forums/${forumParam}`,
             },
           ]}/>
 
-          <ForumList forums={forum}/>
+
+          {this.state.loading && <div>
+            <div className="loader mt-12 text-gray-700 dark:text-white"/>
+          </div>}
+
+          {!this.state.loading && <ForumList forums={forum}/>}
         </Page>
       </Layout>
     );
