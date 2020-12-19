@@ -10,7 +10,6 @@ interface ForumListProps {
 
 export default class ForumList extends Component<ForumListProps> {
   render(): ReactNode {
-    console.log(this.props.forums);
     return this.props.forums.map((forum, k) => (
       <div key={k}
         className="bg-white dark:bg-gray-800 shadow overflow-hidden sm:rounded-md mb-2">

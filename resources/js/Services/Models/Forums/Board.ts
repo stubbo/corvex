@@ -37,7 +37,6 @@ export default class Board implements BoardData {
         this.icon = FindIcon(value);
         continue;
       }
-      console.log(boardKey);
 
       if (boardKey === 'boards' && value.length > 0) {
         this.boards = Board.collection(value);
@@ -54,7 +53,6 @@ export default class Board implements BoardData {
   }
 
   public static collection(data: BoardData[]): Board[] {
-    console.log('fuck');
     return data.map((response) => new Board(response));
   }
 
