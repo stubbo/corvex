@@ -1,16 +1,17 @@
 ---
 name: Task Template
-about: Describe this issue template's purpose here.
+about: This is a Template for a Feature.
 title: '[TASK] '
 labels: 'task'
 assignees: ''
 
 ---
 
-
 * **Name:**
 
+
 * **Description:**
+
 
 * **Examples / Media:**
 
