@@ -1,12 +1,29 @@
 {
-    "name": "laravel/laravel",
+    "name": "hawkservers/forums",
     "type": "project",
-    "description": "The Laravel Framework.",
+    "description": "A all in one solution",
     "keywords": [
         "framework",
         "laravel"
     ],
     "license": "MIT",
+    "authors": [
+        {
+            "name": "George",
+            "email": "george@stubbo.me",
+            "homepage": "https://hawk.best"
+        },
+        {
+            "name": "Jack",
+            "email": "heyjack@heyjack.info",
+            "homepage": "https://heyjack.info"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/hawkservers/forum/issues",
+        "source": "https://github.com/hawkservers/forum",
+        "docs": "https://github.com/hawkservers/forum/wiki"
+    },
     "require": {
         "php": "^7.4",
         "fideloper/proxy": "^4.4",

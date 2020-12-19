@@ -1,5 +1,5 @@
 ---
-name: Feature Template
+name: 💡 Feature Template
 about: This is a Template for a Feature.
 title: '[Feature] '
 labels: 'feature'

@@ -1,5 +1,5 @@
 ---
-name: Bug Template
+name: 🐛 Bug Template
 about: This is a Template for a Bug.
 title: '[BUG] '
 labels: 'bug'
