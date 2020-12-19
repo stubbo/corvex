@@ -2,13 +2,13 @@
 
 namespace App\Http\Resources\Forum;
 
-use App\Models\Forum\Forum;
+use App\Models\Forums\Forums;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 /**
  * Class ForumResource
- * @package App\Http\Resources\Forum
- * @property Forum $resource
+ * @package App\Http\Resources\Forums
+ * @property Forums $resource
  */
 class ForumResource extends JsonResource
 {

@@ -11,8 +11,8 @@ use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Illuminate\Database\Eloquent\Relations\MorphTo;
 
 /**
- * Class Forum
- * @package App\Models\Forum
+ * Class Forums
+ * @package App\Models\Forums
  *
  * @property string $id
  * @property string $title

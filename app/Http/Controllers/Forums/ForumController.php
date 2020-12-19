@@ -3,8 +3,8 @@
 namespace App\Http\Controllers\Forums;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Forum\ForumCreateRequest;
-use App\Http\Requests\Forum\ForumUpdateRequest;
+use App\Http\Requests\Forums\ForumCreateRequest;
+use App\Http\Requests\Forums\ForumUpdateRequest;
 use App\Http\Resources\Forum\ForumResource;
 use App\Models\Forum\Forum;
 use Exception;

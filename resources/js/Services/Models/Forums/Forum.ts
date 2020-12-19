@@ -10,6 +10,7 @@ import FindIcon from 'Services/FindIcon';
 interface ForumData {
   id: string;
   title: string;
+  slug: string;
   description: string;
   icon: string;
   boards: Board[];
@@ -22,6 +23,7 @@ export interface ForumResponse {
 export default class Forum {
   id: string;
   title: string;
+  slug?: string;
   description: string;
   icon: IconDefinition;
   boards: Board[];

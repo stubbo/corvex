@@ -2,7 +2,7 @@
 
 namespace App\Nova\Metrics\Forums;
 
-use App\Models\Forum\Board;
+use App\Models\Forums\Board;
 use DateInterval;
 use DateTimeInterface;
 use Laravel\Nova\Http\Requests\NovaRequest;

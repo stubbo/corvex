@@ -9,7 +9,7 @@ export class GuestTopHeader extends Component<TopHeaderProps> {
     return (
       <div className="flex-shrink-0 relative ml-4">
         <div>
-          <Link to='login' className="rounded-full flex focus:outline-none">
+          <Link to="/login" className="rounded-full flex focus:outline-none">
             Login
           </Link>
         </div>

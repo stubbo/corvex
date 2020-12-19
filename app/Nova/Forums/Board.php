@@ -17,7 +17,7 @@ class Board extends Resource
      *
      * @var string
      */
-    public static $model = \App\Models\Forum\Board::class;
+    public static $model = \App\Models\Forums\Board::class;
 
     /**
      * The single value that should be used to represent the resource when being displayed.
@@ -57,7 +57,7 @@ class Board extends Resource
             Text::make('Description'),
             Fontawesome::make('Icon'),
             MorphTo::make('Parent')->types([
-                Forum::class,
+                Forums::class,
                 Board::class,
             ]),
             MorphMany::make('Boards', 'children')
