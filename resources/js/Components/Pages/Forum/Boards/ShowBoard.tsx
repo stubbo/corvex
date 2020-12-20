@@ -112,7 +112,7 @@ export default class ShowBoard extends BasePage<Route<BoardProps>, BoardState> {
     if (board) {
       crumbs = board.breadcrumbs.map(({id, title, type}: BoardBreadcrumb) => ({
         display: title,
-        link: (type === 'forum' ? '/forums/' : '/boards') + id
+        link: (type === 'forum' ? '/forums/' : '/boards/') + id
       }));
     }
 
