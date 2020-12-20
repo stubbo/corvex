@@ -2,7 +2,7 @@
 
 namespace App\Nova\Metrics\Forums;
 
-use App\Models\Forums\Forums;
+use App\Models\Forum\Forum;
 use DateInterval;
 use DateTimeInterface;
 use Laravel\Nova\Http\Requests\NovaRequest;
@@ -18,7 +18,7 @@ class NewForumsPerDay extends Trend
      */
     public function calculate(NovaRequest $request)
     {
-        return $this->countByDays($request, Forums::class);
+        return $this->countByDays($request, Forum::class);
     }
 
     /**

@@ -17,7 +17,7 @@ class Board extends Resource
      *
      * @var string
      */
-    public static $model = \App\Models\Forums\Board::class;
+    public static $model = \App\Models\Forum\Board::class;
 
     /**
      * The single value that should be used to represent the resource when being displayed.
@@ -35,17 +35,17 @@ class Board extends Resource
         'id', 'title', 'slug'
     ];
 
-    public static $group = 'Forums';
+    public static $group = 'Index';
 
     public static $showPollingToggle = true;
 
     /**
      * Get the fields displayed by the resource.
      *
-     * @param \Illuminate\Http\Request $request
+     * @param Request $request
      * @return array
      */
-    public function fields(Request $request)
+    public function fields(Request $request): array
     {
         return [
             ID::make(__('ID'), 'id')->sortable(),
@@ -57,7 +57,7 @@ class Board extends Resource
             Text::make('Description'),
             Fontawesome::make('Icon'),
             MorphTo::make('Parent')->types([
-                Forums::class,
+                Forum::class,
                 Board::class,
             ]),
             MorphMany::make('Boards', 'children')
@@ -67,10 +67,10 @@ class Board extends Resource
     /**
      * Get the cards available for the request.
      *
-     * @param \Illuminate\Http\Request $request
+     * @param Request $request
      * @return array
      */
-    public function cards(Request $request)
+    public function cards(Request $request): array
     {
         return [];
     }
@@ -78,10 +78,10 @@ class Board extends Resource
     /**
      * Get the filters available for the resource.
      *
-     * @param \Illuminate\Http\Request $request
+     * @param Request $request
      * @return array
      */
-    public function filters(Request $request)
+    public function filters(Request $request): array
     {
         return [];
     }
@@ -89,10 +89,10 @@ class Board extends Resource
     /**
      * Get the lenses available for the resource.
      *
-     * @param \Illuminate\Http\Request $request
+     * @param Request $request
      * @return array
      */
-    public function lenses(Request $request)
+    public function lenses(Request $request): array
     {
         return [];
     }
@@ -100,10 +100,10 @@ class Board extends Resource
     /**
      * Get the actions available for the resource.
      *
-     * @param \Illuminate\Http\Request $request
+     * @param Request $request
      * @return array
      */
-    public function actions(Request $request)
+    public function actions(Request $request): array
     {
         return [];
     }

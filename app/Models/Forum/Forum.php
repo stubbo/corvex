@@ -10,7 +10,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
 
 /**
- * Class Forums
+ * Class Index
  * @package App\Models\Forums
  *
  * @property string $id

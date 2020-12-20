@@ -4,7 +4,7 @@ namespace App\Http\Requests\Forum;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class ForumUpdateRequest extends FormRequest
+class BoardCreateRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,9 +24,10 @@ class ForumUpdateRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'title' => ['sometimes', 'string'],
-            'description' => ['sometimes', 'string'],
-            'icon' => ['sometimes', 'string'],
+            'title' => ['required', 'string'],
+            'description' => ['required', 'string'],
+            'icon' => ['required', 'string'],
+            'slug' => ['sometimes', 'string', 'unique:boards,slug']
         ];
     }
 }

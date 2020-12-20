@@ -9,14 +9,14 @@ use Laravel\Nova\Fields\MorphMany;
 use Laravel\Nova\Fields\Text;
 use Mdixon18\Fontawesome\Fontawesome;
 
-class Forums extends Resource
+class Forum extends Resource
 {
     /**
      * The model the resource corresponds to.
      *
      * @var string
      */
-    public static $model = \App\Models\Forums\Forums::class;
+    public static $model = \App\Models\Forum\Forum::class;
 
     /**
      * The single value that should be used to represent the resource when being displayed.
@@ -34,7 +34,7 @@ class Forums extends Resource
         'id', 'title', 'slug'
     ];
 
-    public static $group = 'Forums';
+    public static $group = 'Index';
 
     public static $showPollingToggle = true;
     public static $pollingInterval = 5;
