@@ -38,7 +38,7 @@ export default class ShowBoard extends BasePage<Route<BoardProps>, BoardState> {
     this.fetchData();
   }
 
-  componentDidUpdate(prevProps: Readonly<Route<BoardProps>>) {
+  componentDidUpdate(prevProps: Readonly<Route<BoardProps>>): void {
     if (prevProps.match.params.board !== this.props.match.params.board)
     this.fetchData();
   }
@@ -49,7 +49,7 @@ export default class ShowBoard extends BasePage<Route<BoardProps>, BoardState> {
     });
 
     const {board, forum} = this.props.match.params;
-    let filters = {};
+    const filters = {};
 
     if (forum) {
       filters['filter[parent_id]'] = forum;
