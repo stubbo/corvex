@@ -1,4 +1,4 @@
-import Api from 'Api/Forums/ForumResource';
+import Api from 'Api/Forums/ForumBoardResource';
 import {AxiosRequestConfig} from 'axios';
 import {PaginatedResource} from 'Api/ApiResource';
 import {
@@ -10,23 +10,33 @@ import FindIcon from 'Services/FindIcon';
 interface BoardData {
   id: string;
   title: string;
+  slug?: string;
   description: string;
   icon: string | IconDefinition;
-  boards: Board[];
+  children: Board[];
   parent: Forum | Board;
+  breadcrumbs: BoardBreadcrumb[]
 }
 
 export interface BoardResponse {
   data: BoardData
 }
 
+export interface BoardBreadcrumb {
+  id: string;
+  title: string;
+  type: 'forum' | 'board';
+}
+
 export default class Board implements BoardData {
   id: string;
   title: string;
+  slug?: string;
   description: string;
   icon: IconDefinition;
-  boards: Board[];
+  children: Board[];
   parent: Forum | Board;
+  breadcrumbs: BoardBreadcrumb[]
 
   constructor(data: BoardData) {
     for (const boardKey in data) {
@@ -38,8 +48,8 @@ export default class Board implements BoardData {
         continue;
       }
 
-      if (boardKey === 'boards' && value.length > 0) {
-        this.boards = Board.collection(value);
+      if (boardKey === 'children' && value.length > 0) {
+        this.children = Board.collection(value);
         continue;
       }
 
@@ -57,13 +67,15 @@ export default class Board implements BoardData {
   }
 
   public static async fetch(config?: AxiosRequestConfig): Promise<Board[]> {
-    return Board.collection(
-      (await Api.fetch<PaginatedResource<BoardData>>(config)).data.data,
-    );
+    return Board.collection((
+      await Api.fetch<PaginatedResource<BoardData>>(config)
+    ).data.data);
   }
 
   public static async show(id: string, config?: AxiosRequestConfig): Promise<Board> {
-    return new Board((await Api.show<BoardResponse>(id, config)).data.data);
+    return new Board((
+      await Api.show<BoardResponse>(id, config)
+    ).data.data);
   }
 
   toString(): string {

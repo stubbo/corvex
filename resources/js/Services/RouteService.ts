@@ -5,7 +5,7 @@ import AuthService from 'Services/AuthService';
 
 export interface NavItem {
   name: string;
-  route: string;
+  route: string | string[];
   component: ComponentType<unknown>;
   shouldRender: () => boolean;
   icon?: IconDefinition;

@@ -1,7 +1,7 @@
 import React, {Component, ReactNode} from 'react';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import Forum from 'Services/Models/Forums/Forum';
-import BoardList from 'Components/Pages/Forum/BoardList';
+import BoardList from 'Components/Pages/Forum/Boards/BoardList';
 import {Link} from 'react-router-dom';
 
 interface ForumListProps {
@@ -40,7 +40,7 @@ export default class ForumList extends Component<ForumListProps> {
             </Link>
           </li>
 
-          <BoardList boards={forum.boards}/>
+          <BoardList forum={forum.id} boards={forum.boards}/>
         </ul>
       </div>
     ));

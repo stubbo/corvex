@@ -20,11 +20,12 @@ class BoardResource extends JsonResource
         return [
             'id' => $this->resource->id,
             'title' => $this->resource->title,
+            'slug' => $this->resource->slug,
             'description' => $this->resource->description,
             'icon' => $this->resource->icon,
-            'boards' => BoardResource::collection($this->whenLoaded('children')),
+            'children' => BoardResource::collection($this->whenLoaded('children')),
             'parent_id' => $this->resource->parent_id,
-            'parent' => new $parent($this->whenLoaded('parent'))
+            'parent' => new $parent($this->whenLoaded('parent')),
         ];
     }
 }

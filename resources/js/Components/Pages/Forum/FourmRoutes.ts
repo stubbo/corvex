@@ -1,5 +1,6 @@
 import RouteService from 'Services/RouteService';
-import Forums from 'Components/Pages/Forum/Forums';
-import ShowForum from 'Components/Pages/Forum/ShowForum';
+import Index from 'Components/Pages/Forum/Forums';
+import ShowForum from 'Components/Pages/Forum/Forums/ShowForum';
+import ShowBoard from 'Components/Pages/Forum/Boards/ShowBoard';
 
-RouteService.registerRoute(Forums.route, ShowForum.route);
+RouteService.registerRoute(Index.route, ShowForum.route, ShowBoard.route);

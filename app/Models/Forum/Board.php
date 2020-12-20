@@ -14,11 +14,13 @@ use Illuminate\Database\Eloquent\Relations\MorphTo;
  * Class Index
  * @package App\Models\Forums
  *
- * @property string $id
- * @property string $title
- * @property string $slug
- * @property string $description
- * @property string $icon
+ * @property string      $id
+ * @property string      $title
+ * @property string      $slug
+ * @property string      $description
+ * @property string      $icon
+ * @property Forum|Board $parent
+ * @property string      $parent_id
  *
  * @method static Board create(array $data)
  *
@@ -42,5 +44,23 @@ class Board extends Model
     public function parent(): MorphTo
     {
         return $this->morphTo();
+    }
+
+    public function generateBreadcrumb()
+    {
+        $crumbs = [];
+
+        $current = $this;
+        while ($parent = $current->parent) {
+            $current = $parent;
+
+            $crumbs[] = [
+                'id' => $parent->id,
+                'title' => $parent->title,
+                'type' => $parent instanceof Forum ? 'forum' : 'board'
+            ];
+        }
+
+        return $crumbs;
     }
 }

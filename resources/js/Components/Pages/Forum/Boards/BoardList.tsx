@@ -1,16 +1,20 @@
 import React, {Component, ReactNode} from 'react';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import Board from 'Services/Models/Forums/Board';
+import {Link} from 'react-router-dom';
 
 interface BoardListProps {
+  forum: string;
   boards: Board[]
 }
 
 export default class BoardList extends Component<BoardListProps> {
   render(): ReactNode {
-    return this.props.boards.map((board, k) => (
+    const {forum, boards} = this.props;
+
+    return boards.map((board, k) => (
       <li key={k}>
-        <a href="#"
+        <Link to={`/forums/${forum}/boards/${board.slug ?? board.id}`}
           className="block hover:bg-gray-50 dark:hover:bg-gray-700 pl-5">
           <div className="flex items-center px-4 py-4 sm:px-6">
             <div className="min-w-0 flex-1 flex items-center">
@@ -43,7 +47,7 @@ export default class BoardList extends Component<BoardListProps> {
               </div>
             </div>
           </div>
-        </a>
+        </Link>
       </li>
     ));
   }

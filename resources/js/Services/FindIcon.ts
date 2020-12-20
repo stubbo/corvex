@@ -7,6 +7,12 @@ import {
 export default function FindIcon(iconString: string): IconDefinition {
   /* @ts-ignore */
   const icon: [IconPrefix, IconName] = iconString.split(' ');
+
+  if (icon.length < 2) {
+    /* @ts-ignore */
+    icon[1] = icon[0]; icon[0] = 'fas';
+  }
+
   /* @ts-ignore */
   icon[1] = icon[1].replace('fa-', '');
 

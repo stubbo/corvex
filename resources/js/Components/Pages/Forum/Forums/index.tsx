@@ -6,7 +6,7 @@ import Page from 'Layout/Page';
 import {faHome} from '@fortawesome/free-solid-svg-icons';
 import Breadcrumbs from 'Layout/Breadcrumbs';
 import ForumModel from 'Services/Models/Forums/Forum';
-import ForumList from 'Components/Pages/Forum/ForumList';
+import ForumList from 'Components/Pages/Forum/Forums/ForumList';
 
 export interface ForumProps {
   forum?: string;
