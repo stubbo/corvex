@@ -44,7 +44,7 @@ class BoardsController extends Controller
                 ->allowedIncludes(['parent', 'children'])
                 ->allowedFilters('parent_id')
                 ->where('id', $board)
-                ->orWHere('slug', $board)
+                ->orWhere('slug', $board)
                 ->firstOrFail()
         );
     }

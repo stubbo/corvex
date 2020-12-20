@@ -39,7 +39,7 @@ class ForumController extends Controller
             QueryBuilder::for(Forum::class)
                 ->allowedIncludes(['boards'])
                 ->where('id', $forum)
-                ->orWHere('slug', $forum)
+                ->orWhere('slug', $forum)
                 ->firstOrFail()
         );
     }
