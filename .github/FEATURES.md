@@ -58,14 +58,13 @@
 ### Settings
   * User
     * Custom profile pics
-    * Bio
-
-### Management
-  * Warnings
-  * Ranks
-  * IP and user bans
-  * Clear cache
-  * Updater
+    * Bio 
+  * Management
+      * Warnings
+      * Ranks
+      * IP and user bans
+      * Clear cache
+      * Updater
     
 ### Community Logs
 
