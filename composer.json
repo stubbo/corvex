@@ -1,5 +1,5 @@
 {
-    "name": "hawkservers/forums",
+    "name": "hawkservers/corvex",
     "type": "project",
     "description": "A all in one solution",
     "keywords": [
@@ -11,7 +11,7 @@
         {
             "name": "George",
             "email": "george@stubbo.me",
-            "homepage": "https://hawk.best"
+            "homepage": "https://hawkservers.co"
         },
         {
             "name": "Jack",
@@ -20,9 +20,9 @@
         }
     ],
     "support": {
-        "issues": "https://github.com/hawkservers/forum/issues",
-        "source": "https://github.com/hawkservers/forum",
-        "docs": "https://github.com/hawkservers/forum/wiki"
+        "issues": "https://github.com/hawkservers/corvex/issues",
+        "source": "https://github.com/hawkservers/corvex",
+        "docs": "https://github.com/hawkservers/corvex/wiki"
     },
     "require": {
         "php": "^7.4",
