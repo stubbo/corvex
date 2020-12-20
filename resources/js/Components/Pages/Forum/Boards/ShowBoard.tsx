@@ -69,10 +69,15 @@ export default class ShowBoard extends BasePage<Route<BoardProps>, BoardState> {
   renderBoard = (board: Board = this.state.board, k?: number): ReactNode => {
     if (!board || !(board instanceof Board)) return;
 
+    let classes = 'block hover:bg-gray-50 dark:hover:bg-gray-700';
+    if (k !== undefined) {
+      classes += ' pl-5';
+    }
+
     return (
       <li key={k}>
         <Link to={`/boards/${board.slug ?? board.id}`}
-          className="block hover:bg-gray-50 dark:hover:bg-gray-700 pl-5">
+          className={classes}>
           <div className="flex items-center px-4 py-4 sm:px-6">
             <div className="min-w-0 flex-1 flex items-center">
               <div className="flex-shrink-0">
