@@ -15,7 +15,7 @@ class PlatformAccount extends Resource
      *
      * @var string
      */
-    public static $model = \App\Models\PlatformAccount::class;
+    public static $model = \App\Models\Account\PlatformAccount::class;
 
     /**
      * The single value that should be used to represent the resource when being displayed.

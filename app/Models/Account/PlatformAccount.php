@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models;
+namespace App\Models\Account;
 
 use App\Traits\HasUuid;
 use Carbon\Carbon;
