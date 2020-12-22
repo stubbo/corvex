@@ -52,7 +52,9 @@ class Forum extends Resource
             Text::make('Title'),
             Text::make('Slug')
                 ->nullable()
-                ->rules(['nullable', 'unique:forums,slug'])
+                ->rules('nullable')
+                ->creationRules('unique:forums,slug')
+                ->updateRules('unique:forums,slug,{{resourceId}}')
                 ->help('Used for friendly urls'),
             Text::make('Description'),
             Fontawesome::make('Icon'),

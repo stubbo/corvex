@@ -52,7 +52,9 @@ class Board extends Resource
             Text::make('Title'),
             Text::make('Slug')
                 ->nullable()
-                ->rules(['nullable', 'unique:boards,slug'])
+                ->rules('nullable')
+                ->creationRules('unique:boards,slug')
+                ->updateRules('unique:boards,slug,{{resourceId}}')
                 ->help('Used for friendly urls'),
             Text::make('Description'),
             Fontawesome::make('Icon'),
