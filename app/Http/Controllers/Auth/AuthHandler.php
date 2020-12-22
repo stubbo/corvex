@@ -29,7 +29,7 @@ trait AuthHandler
 
         try {
             $avatarNewPath = 'users/avatars/' . Str::uuid()->toString();
-            Storage::put($avatarPath, Http::get($data->get('avatar'))->body());
+            Storage::put($avatarNewPath, Http::get($data->get('avatar'))->body());
             $avatarPath = $avatarNewPath;
         } catch (Exception $e) {
             Log::error($e->getMessage(), $e->getTrace());
