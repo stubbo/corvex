@@ -56,6 +56,7 @@ class Board extends Model
 
             $crumbs[] = [
                 'id' => $parent->id,
+                'slug' => $parent->slug,
                 'title' => $parent->title,
                 'type' => $parent instanceof Forum ? 'forum' : 'board'
             ];

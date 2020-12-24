@@ -40,7 +40,7 @@ export default class ForumList extends Component<ForumListProps> {
             </Link>
           </li>
 
-          <BoardList forum={forum.id} boards={forum.boards}/>
+          <BoardList forum={forum.slug ?? forum.id} boards={forum.boards}/>
         </ul>
       </div>
     ));

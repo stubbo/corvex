@@ -25,6 +25,7 @@ export interface BoardResponse {
 export interface BoardBreadcrumb {
   id: string;
   title: string;
+  slug: string;
   type: 'forum' | 'board';
 }
 
