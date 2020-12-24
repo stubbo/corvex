@@ -53,5 +53,8 @@ return [
         'join_guild' => (bool)env('DISCORD_JOIN_GUILD'),
         'guild_id' => env('DISCORD_GUILD'),
         'bot_token' => env('DISCORD_BOT_TOKEN'),
+
+        'allow_gif_avatars' => (bool)env('DISCORD_AVATAR_GIF', true),
+        'avatar_default_extension' => env('DISCORD_EXTENSION_DEFAULT', 'webp'),
     ],
 ];

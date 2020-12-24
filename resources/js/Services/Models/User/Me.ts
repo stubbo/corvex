@@ -1,22 +1,24 @@
 import MeResource from 'Api/User/MeResource';
 
 export interface MeResponse {
-  data: {
-    id: string;
-    username: string;
-    avatar: string;
-  }
+  data: MeData
 }
 
-export default class Me {
-  data: {
-    id: string;
-    username: string;
-    avatar: string;
-  }
+interface MeData {
+  id: string;
+  username: string;
+  avatar: string;
+}
+
+export default class Me implements MeData {
+  id: string;
+  username: string;
+  avatar: string;
 
   constructor({data: {id, username, avatar}}: MeResponse) {
-    this.data = {id, username, avatar};
+    this.id = id;
+    this.username = username;
+    this.avatar = avatar;
   }
 
   public static async fetch(): Promise<Me> {
@@ -24,6 +26,6 @@ export default class Me {
   }
 
   toString(): string {
-    return JSON.stringify(this.data);
+    return JSON.stringify(this);
   }
 }
