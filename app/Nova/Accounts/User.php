@@ -5,6 +5,7 @@ namespace App\Nova\Accounts;
 use App\Nova\Resource;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Laravel\Nova\Fields\BelongsToMany;
 use Laravel\Nova\Fields\HasMany;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Image;
@@ -17,7 +18,7 @@ class User extends Resource
      *
      * @var string
      */
-    public static $model = \App\Models\Account\User::class;
+    public static $model = \App\Models\Accounts\User::class;
 
     /**
      * The single value that should be used to represent the resource when being displayed.
@@ -57,7 +58,9 @@ class User extends Resource
             })->readonly(function() {
                 return true;
             }),
-            HasMany::make('Platform Accounts', 'platformAccounts')
+            HasMany::make('Platform Accounts', 'platformAccounts'),
+            BelongsToMany::make('Roles'),
+            HasMany::make('Bans'),
         ];
     }
 

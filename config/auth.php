@@ -74,7 +74,7 @@ return [
     'providers' => [
         'users' => [
             'driver' => 'eloquent',
-            'model' => App\Models\Account\User::class,
+            'model' => App\Models\Accounts\User::class,
         ],
 
         'admins' => [
@@ -129,4 +129,12 @@ return [
     'default_avatar' => env('USER_DEFAULT_AVATAR', '/img/logo.svg'),
 
     'admin_emails' => explode(',', env('ADMIN_EMAILS', '')),
+
+    'permissions' => [
+        'system' => [
+            'one',
+            'two',
+            'three'
+        ]
+    ]
 ];

@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Models\Account\User;
+use App\Models\Accounts\User;
 use Illuminate\Database\Seeder;
 
 class UserSeeder extends Seeder
@@ -14,7 +14,7 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-        if (config('app.env') !== 'production') {
+        if (config('app.env') === 'production') {
             return;
         }
 

@@ -3,6 +3,7 @@
 namespace App\Models\Forum;
 
 use App\Traits\HasUuid;
+use App\Traits\SoftDeletes;
 use Eloquent;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -30,10 +31,17 @@ use Illuminate\Database\Eloquent\Relations\MorphTo;
  */
 class Board extends Model
 {
-    use HasFactory, HasUuid;
+    use HasFactory, HasUuid, SoftDeletes;
+
+    public $incrementing = false;
+    protected $keyType = 'string';
 
     protected $fillable = [
         'title', 'description', 'icon',
+    ];
+
+    protected array $cascadeDeletes = [
+        'children'
     ];
 
     public function children(): MorphMany

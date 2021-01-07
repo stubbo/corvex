@@ -3,6 +3,7 @@
 namespace App\Models\Forum;
 
 use App\Traits\HasUuid;
+use App\Traits\SoftDeletes;
 use Eloquent;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -27,7 +28,10 @@ use Illuminate\Database\Eloquent\Relations\MorphMany;
  */
 class Forum extends Model
 {
-    use HasFactory, HasUuid;
+    use HasFactory, HasUuid, SoftDeletes;
+
+    public $incrementing = false;
+    protected $keyType = 'string';
 
     protected $fillable = [
         'title', 'slug', 'description', 'icon'
@@ -35,6 +39,10 @@ class Forum extends Model
 
     protected $casts = [
         'category' => 'boolean',
+    ];
+
+    protected array $cascadeDeletes = [
+        'boards'
     ];
 
     /**

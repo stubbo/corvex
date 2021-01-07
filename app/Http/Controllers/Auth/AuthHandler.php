@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\Models\Account\PlatformAccount;
-use App\Models\Account\User;
+use App\Models\Accounts\PlatformAccount;
+use App\Models\Accounts\User;
 use Exception;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Http;

@@ -27,7 +27,8 @@ mix.js('resources/js/app.tsx', 'public/js').react()
   .postCss('resources/css/app.css', 'public/css', [
     tailwindcss('./tailwind.config.js'),
     autoprefixer,
-  ]);
+  ])
+  .postCss('resources/css/nova-edits.css', 'public/css', []);
 
 if (!mix.inProduction()) {
   mix.sourceMaps();

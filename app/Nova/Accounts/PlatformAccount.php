@@ -15,7 +15,7 @@ class PlatformAccount extends Resource
      *
      * @var string
      */
-    public static $model = \App\Models\Account\PlatformAccount::class;
+    public static $model = \App\Models\Accounts\PlatformAccount::class;
 
     /**
      * The single value that should be used to represent the resource when being displayed.
@@ -72,7 +72,8 @@ class PlatformAccount extends Resource
     public function filters(Request $request): array
     {
         return [
-            new PlatformAccountType,
+            // todo: fix error which randomly occurred with this
+            // new PlatformAccountType,
         ];
     }
 

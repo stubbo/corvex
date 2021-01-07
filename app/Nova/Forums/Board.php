@@ -35,7 +35,7 @@ class Board extends Resource
         'id', 'title', 'slug'
     ];
 
-    public static $group = 'Index';
+    public static $group = 'Forums';
 
     public static $showPollingToggle = true;
 

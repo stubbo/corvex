@@ -40,6 +40,8 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
                 'activated_at' => now(), // my custom field
             ]);
         });
+
+        Nova::style('style-changes', public_path('css/nova-edits.css'));
     }
 
     /**

@@ -14,7 +14,8 @@ export interface BottomHeaderProps {
 export default class GenericBottomHeader extends Component<GenericBottomHeaderProps> {
   renderNavItem({route, name}: NavItem, k: number): ReactNode {
     return (
-      <Link key={k} className="nav-item-mobile" to={route}>
+      <Link key={k} className="nav-item-mobile"
+        to={Array.isArray(route) ? route[0] : route}>
         {name}
       </Link>
     );
@@ -28,7 +29,7 @@ export default class GenericBottomHeader extends Component<GenericBottomHeaderPr
 
     return (
       <nav className={`lg:hidden ${menuOpen ? 'block' : 'hidden'}`}
-           aria-label="Global">
+        aria-label="Global">
         {showNav && <div className="pt-2 pb-3 px-2 space-y-1">
           {navRoutes.map(this.renderNavItem)}
         </div>}
@@ -37,7 +38,7 @@ export default class GenericBottomHeader extends Component<GenericBottomHeaderPr
 
           <div className="mt-3 px-2 space-y-1">
             <a href="#"
-               className="nav-item-mobile">
+              className="nav-item-mobile">
               Your Profile
             </a>
 

@@ -2,7 +2,7 @@
 
 namespace App\Nova\Metrics\User;
 
-use App\Models\Account\User;
+use App\Models\Accounts\User;
 use DateInterval;
 use DateTimeInterface;
 use Laravel\Nova\Http\Requests\NovaRequest;

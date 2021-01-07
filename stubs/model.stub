@@ -1,0 +1,19 @@
+<?php
+
+namespace {{ namespace }};
+
+use App\Traits\HasUuid;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+
+class {{ class }} extends Model
+{
+    use HasFactory, HasUuid;
+
+    public $incrementing = false;
+    protected $keyType = 'string';
+
+    protected $fillable = [
+
+    ];
+}

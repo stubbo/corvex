@@ -20,6 +20,7 @@ module.exports = {
       'Root': Path.resolve('resources/js/'),
     },
   },
+  stats: "normal"
 }
 
 

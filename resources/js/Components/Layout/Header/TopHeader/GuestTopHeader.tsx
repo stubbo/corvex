@@ -2,7 +2,7 @@ import React, {Component, ReactNode} from 'react';
 import GenericTopHeader from 'Layout/Header/TopHeader/GenericTopHeader';
 import {TopHeaderProps} from 'Layout/Header/TopHeader/AuthedTopHeader';
 import RouteService, {NavItem} from 'Services/RouteService';
-import { Link } from 'react-router-dom';
+import {Link} from 'react-router-dom';
 
 export class GuestTopHeader extends Component<TopHeaderProps> {
   public renderHeader(): ReactNode {
@@ -19,7 +19,8 @@ export class GuestTopHeader extends Component<TopHeaderProps> {
 
   renderNavItem({route, name}: NavItem, k: number): ReactNode {
     return (
-      <Link key={k} className="nav-item" to={route}>
+      <Link key={k} className="nav-item"
+        to={Array.isArray(route) ? route[0] : route}>
         {name}
       </Link>
     );
@@ -35,7 +36,8 @@ export class GuestTopHeader extends Component<TopHeaderProps> {
 
   public render(): ReactNode {
     return (
-      <GenericTopHeader header={this.renderHeader()} nav={this.renderMobileNav()} {...this.props}/>
+      <GenericTopHeader header={this.renderHeader()}
+        nav={this.renderMobileNav()} {...this.props}/>
     );
   }
 }

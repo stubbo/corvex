@@ -19,6 +19,7 @@ class CreateForumsTable extends Migration
             $table->string('title');
             $table->string('description');
             $table->string('icon');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

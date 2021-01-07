@@ -20,6 +20,7 @@ class CreateBoardsTable extends Migration
             $table->string('description');
             $table->string('icon');
             $table->uuidMorphs('parent');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

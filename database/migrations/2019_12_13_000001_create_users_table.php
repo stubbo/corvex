@@ -17,6 +17,7 @@ class CreateUsersTable extends Migration
             $table->uuid('id')->primary();
             $table->string('username');
             $table->string('avatar_path');
+            $table->softDeletes();
             $table->timestamps();
         });
     }
